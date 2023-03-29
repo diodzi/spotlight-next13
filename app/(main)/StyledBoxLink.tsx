@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import { BsArrowUpRight } from 'react-icons/bs'
+import { PortableText } from '@portabletext/react'
 
 type StyledBoxLinkProps = {
   link: string
-  description: string
+  description: any[]
 }
 
 export default function StyledBoxLink({
@@ -16,7 +17,7 @@ export default function StyledBoxLink({
         {link}
         <BsArrowUpRight className="inline" />
       </div>
-      <p>{description}</p>
+      <PortableText value={description} />
     </Link>
   )
 }
