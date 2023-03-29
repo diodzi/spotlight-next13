@@ -1,7 +1,7 @@
 import Header from './Header'
 import StyledBoxLink from './StyledBoxLink'
-import { createClient } from 'next-sanity'
 import { PortableText } from '@portabletext/react'
+import client from '../../sanity/client'
 
 type HomePageDataTypes = {
   buttons: { name: string; description: any[] }[]
@@ -9,12 +9,6 @@ type HomePageDataTypes = {
 }
 
 async function getHomePageData(): Promise<HomePageDataTypes> {
-  const client = createClient({
-    projectId: 'vuk3eh3d',
-    dataset: 'production',
-    apiVersion: '2022-03-27',
-  })
-
   const data = await client.fetch(
     `*[_type == "page" && name == "Home"]
     {

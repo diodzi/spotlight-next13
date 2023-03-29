@@ -1,6 +1,6 @@
 import ExperienceContainer from './ExperienceContainer'
-import { createClient } from 'next-sanity'
 import { PortableText } from '@portabletext/react'
+import client from '../../../sanity/client'
 
 type ExperiencePageDataTypes = {
   experiences: {
@@ -13,12 +13,6 @@ type ExperiencePageDataTypes = {
 }
 
 async function getExperiencePageData(): Promise<ExperiencePageDataTypes> {
-  const client = createClient({
-    projectId: 'vuk3eh3d',
-    dataset: 'production',
-    apiVersion: '2022-03-27',
-  })
-
   const data = await client.fetch(
     `*[_type == "page" && name == "Experience"]
     {
