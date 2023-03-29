@@ -13,6 +13,10 @@ module.exports = {
       fontFamily: {
         inter: ['var(--inter-font)'],
       },
+      colors: {
+        'based-colour': '#ffeda9',
+        'kinda-gray': '#ebebeb',
+      },
     },
   },
   plugins: [],
