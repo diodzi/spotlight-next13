@@ -20,9 +20,11 @@ const pageDetails = {
       name: 'page',
       title: 'What page is this detail linked to?',
       type: 'reference',
-      to: {
-        type: 'page',
-      },
+      to: [
+        {
+          type: 'page',
+        },
+      ],
     },
     {
       name: 'blurb',
@@ -46,6 +48,16 @@ const buttonDescriptor = {
       name: 'name',
       title: 'Name of button',
       type: 'string',
+    },
+    {
+      name: 'page',
+      title: 'Page that this button should live within',
+      type: 'reference',
+      to: [
+        {
+          type: 'page',
+        },
+      ],
     },
     {
       name: 'description',
