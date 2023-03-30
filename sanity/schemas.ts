@@ -1,4 +1,26 @@
-const page = {
+type Schema = {
+  name: string
+  title: string
+  type: string
+  fields: Property[]
+}
+
+type Property = {
+  name: string
+  title: string
+  type: string
+  of?: {}[]
+  to?: ReferenceTo[]
+  options?: {
+    list?: { value: string; title: string }[]
+  }
+}
+
+type ReferenceTo = {
+  type: string
+}
+
+const page: Schema = {
   name: 'page',
   title: 'Pages',
   type: 'document',
@@ -11,9 +33,9 @@ const page = {
   ],
 }
 
-const subsection = {
+const subsection: Schema = {
   name: 'subsection',
-  title: 'Subsection',
+  title: 'Subsections',
   type: 'document',
   fields: [
     {
@@ -24,7 +46,7 @@ const subsection = {
   ],
 }
 
-const pageDetails = {
+const pageDetails: Schema = {
   name: 'pageDetail',
   title: 'Page Details',
   type: 'document',
@@ -62,7 +84,7 @@ const pageDetails = {
   ],
 }
 
-const buttonDescriptor = {
+const buttonDescriptor: Schema = {
   name: 'buttonDescriptor',
   title: 'Button Descriptors',
   type: 'document',
@@ -95,10 +117,10 @@ const buttonDescriptor = {
   ],
 }
 
-const experience = {
+const experience: Schema = {
   name: 'experience',
   type: 'document',
-  title: 'Experience',
+  title: 'Experiences',
   fields: [
     {
       name: 'name',
@@ -133,10 +155,64 @@ const experience = {
   ],
 }
 
+const technology: Schema = {
+  name: 'technology',
+  type: 'document',
+  title: 'Technologies',
+  fields: [
+    {
+      name: 'name',
+      title: 'Name of technology',
+      type: 'string',
+    },
+    {
+      name: 'typeOfTech',
+      title: 'What type of technology is it?',
+      type: 'array',
+      of: [
+        {
+          type: 'string',
+        },
+      ],
+      options: {
+        list: [
+          { title: 'Primary Language', value: 'primaryTechnology' },
+          { title: 'Database', value: 'database' },
+          { title: 'UI Library', value: 'UILibrary' },
+          { title: 'Web Framework', value: 'Web Framework' },
+          { title: 'Miscellaneous', value: 'Miscellaneous' },
+        ],
+      },
+    },
+    {
+      name: 'platform',
+      title: 'Platform the technology runs on',
+      type: 'array',
+      of: [
+        {
+          type: 'string',
+        },
+      ],
+      options: {
+        list: [
+          { title: 'Web', value: 'web' },
+          { title: 'Agnostic', value: 'agnostic' },
+        ],
+      },
+    },
+    {
+      name: 'mainStack',
+      title: 'Is it part of the main tech stack?',
+      type: 'boolean',
+    },
+  ],
+}
+
 export const SchemaTypes = [
   page,
   subsection,
   pageDetails,
   buttonDescriptor,
   experience,
+  technology,
 ]
