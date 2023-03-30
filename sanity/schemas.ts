@@ -11,6 +11,19 @@ const page = {
   ],
 }
 
+const subsection = {
+  name: 'subsection',
+  title: 'Subsection',
+  type: 'document',
+  fields: [
+    {
+      name: 'name',
+      title: 'Name of subsection',
+      type: 'string',
+    },
+  ],
+}
+
 const pageDetails = {
   name: 'pageDetail',
   title: 'Page Details',
@@ -23,6 +36,16 @@ const pageDetails = {
       to: [
         {
           type: 'page',
+        },
+      ],
+    },
+    {
+      name: 'subsection',
+      title: 'What subsection of the page is this detail linked to?',
+      type: 'reference',
+      to: [
+        {
+          type: 'subsection',
         },
       ],
     },
@@ -110,4 +133,10 @@ const experience = {
   ],
 }
 
-export const SchemaTypes = [page, pageDetails, buttonDescriptor, experience]
+export const SchemaTypes = [
+  page,
+  subsection,
+  pageDetails,
+  buttonDescriptor,
+  experience,
+]
