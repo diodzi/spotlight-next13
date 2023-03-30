@@ -4,20 +4,33 @@ import { PortableText } from '@portabletext/react'
 
 type StyledBoxLinkProps = {
   link: string
-  description: any[]
+  description: any[] | null
+  small?: boolean
 }
 
 export default function StyledBoxLink({
   link,
   description,
+  small = false,
 }: StyledBoxLinkProps) {
   return (
-    <Link href={link.toLowerCase()} className="p-4 bg-kinda-gray rounded-lg">
-      <div className="flex justify-between align-baseline border-b-2 border-b-black mb-2 pb-2">
+    <Link
+      href={link.toLowerCase()}
+      className={`${small ? 'p-1' : 'p-4'} bg-kinda-gray rounded-lg`}
+    >
+      <div
+        className={
+          small ? 'mb-0 inline' : 'flex align-baseline mb-2 justify-between'
+        }
+      >
         {link}
         <BsArrowUpRight className="inline" />
       </div>
-      <PortableText value={description} />
+      {description != null && (
+        <div className="pt-2 border-t-2 border-t-black">
+          <PortableText value={description} />
+        </div>
+      )}
     </Link>
   )
 }
