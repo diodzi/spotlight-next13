@@ -1,6 +1,6 @@
 import Header from './Header'
 import StyledBoxLink from './StyledBoxLink'
-import { PortableText } from '@portabletext/react'
+import { toPlainText } from '@portabletext/react'
 import client from '../../sanity/client'
 
 type HomePageDataTypes = {
@@ -30,18 +30,18 @@ export default async function Home() {
     <main className="flex flex-col items-center">
       <Header />
 
-      <section className="flex flex-col items-center p-10 pb-0">
+      <section className="flex flex-col items-center px-10 pb-0 pt-14">
         <h1 className="text-4xl font-bold mb-5">Hello!</h1>
-        <PortableText value={pageDetails.blurb} />
+        <p>{toPlainText(pageDetails.blurb)}</p>
       </section>
 
-      <div className="grid grid-rows-2 grid-cols-2 w-fit gap-5 p-10">
+      <section className="grid grid-rows-2 grid-cols-2 w-screen gap-5 px-10 py-14">
         {buttons.map(
           ({ name, description }: { name: string; description: any[] }) => {
             return <StyledBoxLink link={name} description={description} />
           }
         )}
-      </div>
+      </section>
     </main>
   )
 }
