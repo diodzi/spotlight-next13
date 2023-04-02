@@ -176,10 +176,10 @@ const technology: Schema = {
       ],
       options: {
         list: [
-          { title: 'Primary Language', value: 'primaryTechnology' },
-          { title: 'Database', value: 'database' },
-          { title: 'UI Library', value: 'UILibrary' },
-          { title: 'Web Framework', value: 'Web Framework' },
+          { title: 'Language', value: 'Language' },
+          { title: 'Database', value: 'Database' },
+          { title: 'UI Library', value: 'UI Library' },
+          { title: 'MetaFramework', value: 'Metaframework' },
           { title: 'Miscellaneous', value: 'Miscellaneous' },
         ],
       },
