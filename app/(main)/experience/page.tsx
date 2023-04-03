@@ -2,7 +2,7 @@ import ExperienceContainer from './ExperienceContainer'
 import { toPlainText } from '@portabletext/react'
 import client from '../../../sanity/client'
 import StyledBoxLink from '../StyledBoxLink'
-import MainStack from './MainStack'
+import TechStack from './TechStack'
 
 type ExperiencePageDataTypes = {
   experienceSectionDetails: { blurb: [] }
@@ -21,6 +21,7 @@ type Technology = {
   name: string
   mainStack: boolean
   typeOfTech: string[]
+  logo: {}
 }
 
 async function getExperiencePageData(): Promise<ExperiencePageDataTypes> {
@@ -41,9 +42,15 @@ async function getExperiencePageData(): Promise<ExperiencePageDataTypes> {
   )
 
   const technologies = await client.fetch(
-    `*[_type == "technology"]
+    `*[_type == "technology"] | order(typeOfTech[0] asc)
     {
-      name, typeOfTech, mainStack
+      name, typeOfTech, mainStack,
+      logo {
+        asset->{
+          ...,
+          metadata
+        }
+      }
     }`
   )
 
@@ -72,14 +79,13 @@ export default async function ExperiencePage() {
     mainStack,
     nonMainStack,
   }: ExperiencePageDataTypes = await getExperiencePageData()
-  console.log(mainStack)
 
   return (
     <main>
       <section className="grid grid-cols-1 place-items-center gap-5 px-10 pt-14 pb-0">
         <h1 className="text-4xl font-bold">Experience</h1>
         <p>{toPlainText(experienceSectionDetails.blurb)}</p>
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 w-full">
           {experiences?.map(({ name, position, timeframe, description }) => {
             return (
               <ExperienceContainer
@@ -101,8 +107,9 @@ export default async function ExperiencePage() {
           <StyledBoxLink link="blog" description={null} small={true} />
         </p>
 
-        <div className="grid place-items-center">
-          <MainStack heading="Main Web Stack" technologies={mainStack} />
+        <div className="flex flex-col gap-5 w-full">
+          <TechStack heading="Main Web Stack" technologies={mainStack} />
+          <TechStack heading="Other Technologies" technologies={nonMainStack} />
         </div>
       </section>
     </main>
