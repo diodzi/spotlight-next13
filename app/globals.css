@@ -6,3 +6,7 @@
   --based-colour: #ffeda9;
   --gray: #ebebeb;
 }
+
+.styled-shadow {
+  @apply bg-kinda-gray shadow-lg shadow-gray-300;
+}
