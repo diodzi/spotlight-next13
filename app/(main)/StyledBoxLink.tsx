@@ -16,7 +16,7 @@ export default function StyledBoxLink({
   return (
     <Link
       href={link.toLowerCase()}
-      className={`${small ? 'p-1' : 'p-4'} bg-kinda-gray rounded-lg`}
+      className={`${small ? 'p-1' : 'p-4'} styled-shadow rounded-lg`}
     >
       <div
         className={
