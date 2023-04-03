@@ -1,4 +1,5 @@
 import { type } from 'os'
+import { title } from 'process'
 
 type Schema = {
   name: string
@@ -215,6 +216,45 @@ const technology: Schema = {
   ],
 }
 
+const project: Schema = {
+  name: 'project',
+  title: 'Project',
+  type: 'document',
+  fields: [
+    {
+      name: 'name',
+      title: 'Project Name',
+      type: 'string',
+    },
+    {
+      name: 'image',
+      title: 'Project Image',
+      type: 'image',
+    },
+    {
+      name: 'technologies',
+      title: 'Technologies Used',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'technology' }],
+        },
+      ],
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+        },
+      ],
+    },
+  ],
+}
+
 export const SchemaTypes = [
   page,
   subsection,
@@ -222,4 +262,5 @@ export const SchemaTypes = [
   buttonDescriptor,
   experience,
   technology,
+  project,
 ]
