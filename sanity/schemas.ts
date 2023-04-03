@@ -1,3 +1,5 @@
+import { type } from 'os'
+
 type Schema = {
   name: string
   title: string
@@ -164,6 +166,11 @@ const technology: Schema = {
       name: 'name',
       title: 'Name of technology',
       type: 'string',
+    },
+    {
+      name: 'logo',
+      title: 'Logo',
+      type: 'image',
     },
     {
       name: 'typeOfTech',
