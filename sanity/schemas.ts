@@ -183,11 +183,11 @@ const technology: Schema = {
       ],
       options: {
         list: [
-          { title: 'Language', value: 'Language' },
-          { title: 'Database', value: 'Database' },
-          { title: 'UI Library', value: 'UI Library' },
-          { title: 'MetaFramework', value: 'Metaframework' },
-          { title: 'Miscellaneous', value: 'Miscellaneous' },
+          { title: 'Language', value: '1Language' },
+          { title: 'Database', value: '4Database' },
+          { title: 'UI Library', value: '3UI Library' },
+          { title: 'Meta Framework', value: '2Meta Framework' },
+          { title: 'Miscellaneous', value: '5Miscellaneous' },
         ],
       },
     },
