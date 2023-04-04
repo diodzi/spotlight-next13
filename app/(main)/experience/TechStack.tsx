@@ -1,15 +1,5 @@
-'use client'
-
 import Image from 'next/image'
-import { useNextSanityImage } from 'next-sanity-image'
-import client from '@/sanity/client'
-
-type Technology = {
-  name: string
-  mainStack: boolean
-  typeOfTech: string[]
-  logo: {}
-}
+import { Technology } from '@/types/global'
 
 type TechStackProps = {
   heading: string
@@ -22,13 +12,13 @@ export default function TechStack({ heading, technologies }: TechStackProps) {
       <h3 className="text-lg font-bold">{heading}</h3>
       <div className="grid grid-cols-2 grid-flow-row gap-6">
         {technologies.map((technology: Technology) => {
-          const imageProps = useNextSanityImage(client, technology.logo)
           return (
             <div className="flex flex-col items-center ">
               <Image
-                {...imageProps}
+                src={technology.logo.asset.url}
                 alt={`${technology.name} logo`}
                 width={50}
+                height={50}
               />
               <span className="font-bold mt-2">{technology.name}</span>
               <span className="text-center">

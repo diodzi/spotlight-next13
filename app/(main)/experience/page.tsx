@@ -3,6 +3,7 @@ import { toPlainText } from '@portabletext/react'
 import client from '../../../sanity/client'
 import StyledBoxLink from '../StyledBoxLink'
 import TechStack from './TechStack'
+import { Technology } from '@/types/global'
 
 type ExperiencePageDataTypes = {
   experienceSectionDetails: { blurb: [] }
@@ -17,15 +18,8 @@ type ExperiencePageDataTypes = {
   nonMainStack: Technology[]
 }
 
-type Technology = {
-  name: string
-  mainStack: boolean
-  typeOfTech: string[]
-  logo: {}
-}
-
 async function getExperiencePageData(): Promise<ExperiencePageDataTypes> {
-  const blurbData = await client.fetch(
+  const { experienceSectionDetails, techSectionDetails } = await client.fetch(
     `*[_type == "page" && name == "Experience"]
     {
       "experienceSectionDetails": *[_type == "pageDetail" && references(^._id) && (subsection->name) == "Experience"]
@@ -34,7 +28,6 @@ async function getExperiencePageData(): Promise<ExperiencePageDataTypes> {
       {blurb}[0],
     }[0]`
   )
-  const { experienceSectionDetails, techSectionDetails } = blurbData
 
   const experiences = await client.fetch(
     `*[_type == "experience"] | order(startdate desc)
@@ -45,12 +38,7 @@ async function getExperiencePageData(): Promise<ExperiencePageDataTypes> {
     `*[_type == "technology"] | order(typeOfTech[0] asc)
     {
       name, typeOfTech, mainStack,
-      logo {
-        asset->{
-          ...,
-          metadata
-        }
-      }
+      logo{asset->{url}}
     }`
   )
 
