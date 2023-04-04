@@ -5,7 +5,7 @@ import styles from './styles.module.css'
 export default function Header() {
   return (
     <div
-      className={`${styles.container} bg-black text-white flex flex-col items-center gap-10 pt-10 w-screen`}
+      className={`${styles.container} stack gap-10 pt-10 w-screen bg-black text-white`}
     >
       <div className="p-3 bg-black">
         <h1 className="text-4xl font-bold">Dio Dziban</h1>

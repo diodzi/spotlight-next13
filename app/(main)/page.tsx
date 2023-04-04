@@ -27,10 +27,10 @@ export default async function Home() {
   const { buttons, pageDetails }: HomePageDataTypes = await getHomePageData()
 
   return (
-    <main className="flex flex-col items-center">
+    <main className="stack">
       <Header />
 
-      <section className="flex flex-col items-center px-10 pb-0 pt-14">
+      <section className="stack px-10 pb-0 pt-14">
         <h1 className="text-4xl font-bold mb-5">Hello!</h1>
         <p>{toPlainText(pageDetails.blurb)}</p>
       </section>
@@ -42,6 +42,13 @@ export default async function Home() {
           }
         )}
       </section>
+
+      {/* <section className="grid w-screen gap-5 px-10 pt-14 place-items-center">
+        <h1 className="text-4xl font-bold mb-5">About Me</h1>
+        <div>
+
+        </div>
+      </section> */}
     </main>
   )
 }

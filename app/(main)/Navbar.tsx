@@ -24,7 +24,7 @@ export default function Navbar() {
         </button>
       </div>
       {showMainMenu && (
-        <div className="flex flex-col items-center mt-8 gap-2">
+        <div className="stack mt-8 gap-2">
           {MENU_ITEMS.map((item) => {
             return (
               <Link
