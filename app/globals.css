@@ -10,3 +10,11 @@
 .styled-shadow {
   @apply bg-kinda-gray shadow-lg shadow-gray-300;
 }
+
+.hoverable {
+  @apply hover:bg-based-colour transition;
+}
+
+.stack {
+  @apply flex flex-col items-center;
+}
