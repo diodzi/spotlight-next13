@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import HeaderPic from '../../public/headerpic2.png'
-import styles from './styles.module.css'
+import HeaderPic from '../../../public/headerpic2.png'
+import styles from '../styles.module.css'
 
 export default function Header() {
   return (
