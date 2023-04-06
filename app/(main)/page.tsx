@@ -1,5 +1,5 @@
-import Header from './Header'
-import StyledBoxLink from './StyledBoxLink'
+import Header from './(homeComponents)/Header'
+import StyledBoxLink from './(homeComponents)/StyledBoxLink'
 import { toPlainText } from '@portabletext/react'
 import client from '../../sanity/client'
 

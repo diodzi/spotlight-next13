@@ -1,7 +1,7 @@
 import ExperienceContainer from './ExperienceContainer'
 import { toPlainText } from '@portabletext/react'
 import client from '../../../sanity/client'
-import StyledBoxLink from '../StyledBoxLink'
+import StyledBoxLink from '../(homeComponents)/StyledBoxLink'
 import TechStack from './TechStack'
 import { Technology } from '@/types/global'
 
