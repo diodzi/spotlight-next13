@@ -1,5 +1,4 @@
 import { type } from 'os'
-import { title } from 'process'
 
 type Schema = {
   name: string
@@ -16,6 +15,8 @@ type Property = {
   to?: ReferenceTo[]
   options?: {
     list?: { value: string; title: string }[]
+    source?: string
+    slugify?: any
   }
 }
 
@@ -255,6 +256,50 @@ const project: Schema = {
   ],
 }
 
+const blogPost: Schema = {
+  name: 'blogPost',
+  title: 'Blog Posts',
+  type: 'document',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title of Blog post',
+      type: 'string',
+    },
+    {
+      name: 'date',
+      title: 'Date',
+      type: 'date',
+    },
+    {
+      title: 'Slug',
+      name: 'slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        slugify: (input: any) =>
+          input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
+      },
+    },
+    {
+      name: 'description',
+      title: 'Brief description to be shown on main blog page',
+      type: 'string',
+    },
+    {
+      name: 'image',
+      title: 'Project Image',
+      type: 'image',
+    },
+    {
+      name: 'content',
+      title: 'Content of Blog post',
+      type: 'array',
+      of: [{ type: 'block' }],
+    },
+  ],
+}
+
 export const SchemaTypes = [
   page,
   subsection,
@@ -263,4 +308,5 @@ export const SchemaTypes = [
   experience,
   technology,
   project,
+  blogPost,
 ]
