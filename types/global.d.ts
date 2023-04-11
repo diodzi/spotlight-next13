@@ -12,3 +12,10 @@ export type BlogPostPreviewType = {
   slug: { _type: string; current: string }
   image: { asset: { url: string } }
 }
+
+export type SocialLinkType = {
+  href: string
+  name: string
+  handle: string
+  image: { asset: { url: string } }
+}

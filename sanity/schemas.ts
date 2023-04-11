@@ -300,6 +300,34 @@ const blogPost: Schema = {
   ],
 }
 
+const socialLink: Schema = {
+  name: 'socialLink',
+  title: 'Social Links',
+  type: 'document',
+  fields: [
+    {
+      name: 'name',
+      title: 'Name of Social',
+      type: 'string',
+    },
+    {
+      name: 'href',
+      title: 'Link',
+      type: 'string',
+    },
+    {
+      name: 'handle',
+      title: 'username',
+      type: 'string',
+    },
+    {
+      name: 'image',
+      title: 'Logo',
+      type: 'image',
+    },
+  ],
+}
+
 export const SchemaTypes = [
   page,
   subsection,
@@ -309,4 +337,5 @@ export const SchemaTypes = [
   technology,
   project,
   blogPost,
+  socialLink,
 ]
