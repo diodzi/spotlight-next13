@@ -23,10 +23,10 @@ export default async function ProjectsPage() {
   const { blurb, projects } = await getProjectsPageData()
 
   return (
-    <div className="stack p-10 gap-5">
+    <div className="stack p-10 gap-5 md:px-64">
       <h1 className="text-4xl font-bold">Projects</h1>
       <p>{toPlainText(blurb)}</p>
-      <div className="w-full stack gap-10">
+      <div className="w-full stack gap-10 md:grid md:grid-cols-2">
         {projects.map((project: any) => {
           return (
             <ProjectContainer

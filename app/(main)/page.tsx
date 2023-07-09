@@ -35,20 +35,13 @@ export default async function Home() {
         <p>{toPlainText(pageDetails.blurb)}</p>
       </section>
 
-      <section className="grid grid-rows-2 grid-cols-2 w-screen gap-5 px-10 py-14">
+      <section className="grid grid-rows-2 grid-cols-2 w-screen gap-5 px-10 py-14 md:px-96">
         {buttons.map(
           ({ name, description }: { name: string; description: any[] }) => {
             return <StyledBoxLink link={name} description={description} />
           }
         )}
       </section>
-
-      {/* <section className="grid w-screen gap-5 px-10 pt-14 place-items-center">
-        <h1 className="text-4xl font-bold mb-5">About Me</h1>
-        <div>
-
-        </div>
-      </section> */}
     </main>
   )
 }

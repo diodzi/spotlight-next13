@@ -295,7 +295,7 @@ const blogPost: Schema = {
       name: 'content',
       title: 'Content of Blog post',
       type: 'array',
-      of: [{ type: 'block' }],
+      of: [{ type: 'block' }, { type: 'image' }],
     },
   ],
 }

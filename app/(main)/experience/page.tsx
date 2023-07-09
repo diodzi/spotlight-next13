@@ -70,7 +70,7 @@ export default async function ExperiencePage() {
 
   return (
     <main>
-      <section className="grid grid-cols-1 place-items-center gap-5 px-10 pt-14 pb-0">
+      <section className="grid grid-cols-1 place-items-center gap-5 px-10 pt-14 pb-0 md:px-64">
         <h1 className="text-4xl font-bold">Experience</h1>
         <p>{toPlainText(experienceSectionDetails.blurb)}</p>
         <div className="flex flex-col gap-5 w-full">
@@ -88,14 +88,14 @@ export default async function ExperiencePage() {
         </div>
       </section>
 
-      <section className="grid place-items-center gap-5 px-10 py-14">
+      <section className="grid place-items-center gap-5 px-10 py-14 md:px-64">
         <h1 className="text-4xl font-bold">Technologies</h1>
         <p>
           {toPlainText(techSectionDetails.blurb)}
           <StyledBoxLink link="blog" description={null} small={true} />
         </p>
 
-        <div className="flex flex-col gap-5 w-full">
+        <div className="flex flex-col gap-5 w-full md:grid md:grid-cols-2">
           <TechStack heading="Main Web Stack" technologies={mainStack} />
           <TechStack heading="Other Technologies" technologies={nonMainStack} />
         </div>

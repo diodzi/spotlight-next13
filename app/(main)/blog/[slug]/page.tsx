@@ -2,12 +2,16 @@ import client from '@/sanity/client'
 import { PortableText } from '@portabletext/react'
 import { PortableTextReactComponents } from '@portabletext/react'
 import Image from 'next/image'
+import SanityImage from './SanityImage'
 
 const components: Partial<PortableTextReactComponents> = {
   block: {
     h2: ({ children }) => (
       <h2 className="text-3xl font-bold mt-4">{children}</h2>
     ),
+  },
+  types: {
+    image: SanityImage,
   },
 }
 
@@ -18,6 +22,8 @@ async function getBlogPostData(slug: string) {
         image{asset->{url}}}
         [0]`
   )
+
+  console.log(data.content)
 
   return data
 }
